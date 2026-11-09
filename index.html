@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Alejandro Mena: football coach, video and performance analyst, ex-player (Millonarios FC youth, NAIA) and systems engineer. Entrenador, videoanalista y ex jugador.">
+<meta property="og:title" content="Alejandro Mena · Football">
+<meta property="og:description" content="Coaching, video analysis, performance and marketing in football. Bilingual EN/ES.">
+<meta property="og:image" content="img/coach-board-1.jpg">
+<meta property="og:type" content="profile">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Alejandro Mena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: match-day team sheet — a narrow reading column with a tactics-board hero, sections read like a lineup card */
+:root{
+  --bg:#F2F4EF; --surface:#FFFFFF; --ink:#13201A; --muted:#566259; --line:#D5DBD2;
+  --accent:#1F3FBF; --accent-soft:#E3E8FB; --todo:#9A5B00; --todo-bg:#FFF2DC;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1411; --surface:#141D19; --ink:#E5ECE7; --muted:#97A49B; --line:#26332D;
+  --accent:#8FA3FF; --accent-soft:#1C2547; --todo:#FFC266; --todo-bg:#3A2A10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1411; --surface:#141D19; --ink:#E5ECE7; --muted:#97A49B; --line:#26332D;
+  --accent:#8FA3FF; --accent-soft:#1C2547; --todo:#FFC266; --todo-bg:#3A2A10; color-scheme:dark}
+
+:root:not([data-lang="es"]) .es{display:none!important}
+:root[data-lang="es"] .en{display:none!important}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:960px;margin:0 auto;padding-block:20px 64px;display:flex;flex-direction:column;gap:64px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;background:none;border:0;color:var(--muted);padding:6px 12px;cursor:pointer;letter-spacing:.06em}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(56px,11vw,112px);line-height:.86;letter-spacing:-.01em;margin:10px 0 16px;text-transform:uppercase;text-wrap:balance}
+.lede{font-size:18px;max-width:34ch;margin:0 0 22px;color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:6px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.board{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.board svg{display:block;width:100%;height:auto}
+.board figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.04em}
+
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.fact{padding:14px 12px 14px 0;display:flex;flex-direction:column;gap:2px}
+.fact b{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;text-transform:uppercase}
+.fact span{font-size:13px;color:var(--muted)}
+
+/* Sections */
+section{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px}
+.sec-head{position:relative}
+.sec-head .tag{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+h2{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;text-transform:uppercase;margin:6px 0 0;text-wrap:balance}
+.stack{display:flex;flex-direction:column;gap:0}
+.entry{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding-block:18px;border-top:1px solid var(--line)}
+.entry:first-child{border-top:2px solid var(--ink)}
+.when{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
+h3{font-size:18px;font-weight:600;margin:0;line-height:1.3}
+.org{color:var(--muted);font-size:15px;margin:2px 0 8px}
+.entry p{margin:0;max-width:62ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:3px 8px;border-radius:4px;background:var(--accent-soft);color:var(--ink)}
+.todo{display:inline-block;font-family:var(--mono);font-size:12px;background:var(--todo-bg);color:var(--todo);padding:1px 6px;border-radius:4px}
+
+.about p{margin:0 0 14px;max-width:62ch;font-size:17px}
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.proj .kind{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.proj p{margin:0}
+.proj .more{margin-top:auto;padding-top:6px;font-weight:600;font-size:15px}
+
+.contact{background:var(--ink);color:var(--bg);border-radius:12px;padding:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.contact h2{color:var(--bg)}
+.contact p{margin:12px 0 0;max-width:40ch;opacity:.85}
+.rows{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid color-mix(in srgb,var(--bg) 22%,transparent);padding-bottom:10px;flex-wrap:wrap}
+.row .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.row .v{font-size:16px;overflow-wrap:anywhere;user-select:all}
+.row a{color:var(--bg)}
+.copy{font:inherit;font-size:12px;background:none;border:1px solid color-mix(in srgb,var(--bg) 40%,transparent);color:var(--bg);border-radius:4px;padding:3px 8px;cursor:pointer}
+.photo{margin:0;position:relative;border-radius:10px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:14px}
+.shot{all:unset;cursor:zoom-in;display:flex;flex-direction:column;gap:6px;border-radius:6px}
+.shot img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 25%;border-radius:6px;background:var(--line);transition:transform .2s}
+.shot:hover img{transform:scale(1.02)}
+.shot:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.shot span{font-size:12px;line-height:1.35;color:var(--muted)}
+.shots.wide{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+#lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,1100px);max-height:92vh}
+#lightbox::backdrop{background:rgba(5,10,8,.86)}
+#lightbox img{display:block;max-width:100%;max-height:82vh;margin:0 auto;border-radius:6px}
+#lightbox p{color:#fff;text-align:center;font-size:14px;margin:10px 0 0}
+#lightbox button{position:absolute;top:8px;right:8px;font:600 14px var(--body);background:rgba(0,0,0,.6);color:#fff;border:0;border-radius:4px;padding:6px 10px;cursor:pointer}
+footer{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:center}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  section{grid-template-columns:1fr;gap:12px}
+  .projects{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr;padding:24px}
+}
+@media (max-width:440px){.entry{grid-template-columns:1fr;gap:4px}}
+@media (prefers-reduced-motion:no-preference){
+  .run{stroke-dasharray:6 5;animation:dash 2.4s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-22}}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <span>Football · Coaching · Analysis · Performance · Marketing</span>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="btn-en" type="button" aria-pressed="true">EN</button>
+      <button id="btn-es" type="button" aria-pressed="false">ES</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow"><span class="en">A career built in football · Lexington, Kentucky</span><span class="es">Una carrera hecha en el fútbol · Lexington, Kentucky</span></div>
+      <h1>Alejandro<br>Mena</h1>
+      <p class="lede"><span class="en">24 years as a player, from Millonarios FC youth to NAIA college soccer. Today I coach from youth to college, have worked PSG Academy, Arsenal and AC Milan camps, lead video analysis, train athletes in the gym and work in marketing at a professional club, backed by a systems-engineering degree.</span><span class="es">24 años como jugador, desde las menores de Millonarios FC hasta el fútbol universitario NAIA. Hoy entreno desde formativas hasta universidad, he trabajado en campamentos de PSG Academy, Arsenal y AC Milan, lidero el videoanálisis, preparo atletas en el gimnasio y trabajo en marketing en un club profesional, con el respaldo de una ingeniería de sistemas.</span></p>
+      <div class="cta">
+        <a class="btn" href="https://www.linkedin.com/in/alejandro-mena-rios" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn primary" href="#contact"><span class="en">Contact me</span><span class="es">Contáctame</span></a>
+        <a class="btn" href="https://www.instagram.com/silasperformancelsc/" target="_blank" rel="noopener"><span class="en">See my match analysis</span><span class="es">Ver mis análisis</span> ↗</a>
+      </div>
+    </div>
+    <figure class="photo">
+      <img src="img/coach-board-1.jpg" alt="Alejandro Mena explaining tactics on a whiteboard to the Georgetown College team">
+      <figcaption><span class="en">Team talk · Georgetown College</span><span class="es">Charla técnica · Georgetown College</span></figcaption>
+    </figure>
+  </header>
+
+  <div class="facts" aria-label="Summary">
+    <div class="fact"><b>U9–NAIA</b><span class="en">Coaching, youth to college</span><span class="es">Entrenador, de formativas a universidad</span></div>
+    <div class="fact"><b>Video</b><span class="en">Analysis, scouting &amp; data</span><span class="es">Análisis, scouting y datos</span></div>
+    <div class="fact"><b>Pro club</b><span class="en">Marketing · Lexington SC</span><span class="es">Marketing · Lexington SC</span></div>
+    <div class="fact"><b>24 <span class="en">yrs</span><span class="es">años</span></b><span class="en">As a player · Millonarios FC youth</span><span class="es">Como jugador · menores de Millonarios</span></div>
+    
+  </div>
+
+  <section class="about" id="about">
+    <div class="sec-head"><div class="tag"><span class="en">Profile</span><span class="es">Perfil</span></div><h2><span class="en">Who I am</span><span class="es">Quién soy</span></h2></div>
+    <div>
+      <p><span class="en">I'm a Colombian coach based in Kentucky. I combine two backgrounds: a degree in Systems and Computer Engineering and current studies in Exercise Science and Sport Management. That mix shows up in how I coach. I break matches down on video, build my own data tools, and turn what I find into clear training sessions.</span><span class="es">Soy un entrenador colombiano radicado en Kentucky. Combino dos formaciones: Ingeniería de Sistemas y Computación, y Ciencias del Ejercicio y Administración Deportiva. Esa mezcla se nota en cómo entreno: analizo los partidos en video, construyo mis propias herramientas de datos y convierto lo que encuentro en sesiones de entrenamiento claras.</span></p>
+      <p><span class="en">I have lived football from every side: on the pitch, on the bench, in the video room, in the gym and in a professional club's front office. My goal is to keep growing inside professional or college football, wherever my mix of experience adds the most.</span><span class="es">He vivido el fútbol desde todos sus lados: en la cancha, en el banco, en la sala de video, en el gimnasio y en las oficinas de un club profesional. Mi meta es seguir creciendo dentro del fútbol profesional o universitario, donde mi combinación de experiencias aporte más.</span></p>
+      <p><span class="en">Languages: Spanish (native) and English.</span><span class="es">Idiomas: español (nativo) e inglés.</span></p>
+    </div>
+  </section>
+
+  <section id="coaching">
+    <div class="sec-head"><div class="tag"><span class="en">Coaching staff</span><span class="es">Cuerpo técnico</span></div><h2><span class="en">Coaching</span><span class="es">Entrenador</span></h2></div>
+    <div class="stack">
+      <article class="entry">
+        <div class="when">2026 –</div>
+        <div>
+          <h3><span class="en">Assistant Coach &amp; Head of Video Analysis</span><span class="es">Entrenador asistente y jefe de videoanálisis</span></h3>
+          <div class="org">Georgetown College · NAIA · <span class="en">Head coach: Louis Jones</span><span class="es">Entrenador principal: Louis Jones</span></div>
+          <p><span class="en">Part of the varsity coaching staff. I lead video analysis of our team and our opponents and help prepare match plans with the head coach.</span><span class="es">Parte del cuerpo técnico del equipo universitario. Lidero el análisis de video del equipo propio y de los rivales y apoyo la preparación de los planes de partido junto al entrenador principal.</span></p>
+          <div class="chips"><span class="chip">Video analysis</span><span class="chip">Opponent scouting</span><span class="chip">Match plans</span></div>
+          <div class="shots"><button class="shot" type="button" data-src="img/coach-board-2.jpg"><img src="img/coach-board-2.jpg" alt="Drawing a match plan on a whiteboard" loading="lazy"><span><span class="en">Pre-match plan vs Campbellsville</span><span class="es">Plan pre-partido vs Campbellsville</span></span></button><button class="shot" type="button" data-src="img/coach-player.jpg"><img src="img/coach-player.jpg" alt="Talking with a Georgetown College player during a match" loading="lazy"><span><span class="en">Instructions to a player on the touchline</span><span class="es">Indicaciones a un jugador en la banda</span></span></button><button class="shot" type="button" data-src="img/coach-bench.jpg"><img src="img/coach-bench.jpg" alt="Watching the match from the bench" loading="lazy"><span><span class="en">Reading the game from the bench</span><span class="es">Leyendo el partido desde el banco</span></span></button></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when">Aug 2025 –</div>
+        <div>
+          <h3><span class="en">Youth Coach</span><span class="es">Entrenador de formativas</span></h3>
+          <div class="org">Georgetown Football Club</div>
+          <p><span class="en">Head of sessions for several age groups: U9 and U10 boys, U14 girls and U15 Black. Planning and running training, and game-day management.</span><span class="es">A cargo de varias categorías: U9 y U10 masculino, U14 femenino y U15 Black. Planificación y dirección de entrenamientos y manejo de partidos.</span></p>
+          <div class="chips"><span class="chip">U9 · U10 boys</span><span class="chip">U14 girls</span><span class="chip">U15 Black</span></div>
+          <div class="shots"><button class="shot" type="button" data-src="img/gfc-team-talk.jpg"><img src="img/gfc-team-talk.jpg" alt="Talking to young players on the sideline" loading="lazy"><span><span class="en">Team talk with the youth squad</span><span class="es">Charla con el equipo de formativas</span></span></button><button class="shot" type="button" data-src="img/gfc-instruction.jpg"><img src="img/gfc-instruction.jpg" alt="Giving instructions to a young player" loading="lazy"><span><span class="en">One-on-one instructions at a tournament</span><span class="es">Indicaciones individuales en un torneo</span></span></button><button class="shot" type="button" data-src="img/gfc-sideline.jpg"><img src="img/gfc-sideline.jpg" alt="Watching the match from the sideline on a knee scooter" loading="lazy"><span><span class="en">Kept coaching while recovering from my injury</span><span class="es">Seguí entrenando durante la recuperación de mi lesión</span></span></button></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when"><span class="en">Summers</span><span class="es">Veranos</span></div>
+        <div>
+          <h3><span class="en">Camp Coach &amp; Coordinator</span><span class="es">Entrenador y coordinador de campamentos</span></h3>
+          <div class="org">PSG Academy · Arsenal · AC Milan · <span class="en">summer camps, USA</span><span class="es">campamentos de verano, EE. UU.</span></div>
+          <p><span class="en">Coached and coordinated summer camps run under the names of three of Europe's biggest clubs: leading sessions with young players and organizing groups, schedules and staff on site.</span><span class="es">Entrené y coordiné campamentos de verano con la marca de tres de los clubes más grandes de Europa: dirigiendo sesiones con jugadores jóvenes y organizando grupos, horarios y staff en el lugar.</span></p>
+          <div class="chips"><span class="chip">PSG Academy</span><span class="chip">Arsenal</span><span class="chip">AC Milan</span><span class="chip">Coordination</span></div>
+          <div class="shots"><button class="shot" type="button" data-src="img/psg-solo.jpg"><img src="img/psg-solo.jpg" alt="At a Paris Saint-Germain Academy camp table" loading="lazy"><span><span class="en">Paris Saint-Germain Academy camp</span><span class="es">Campamento Paris Saint-Germain Academy</span></span></button><button class="shot" type="button" data-src="img/psg-staff.jpg"><img src="img/psg-staff.jpg" alt="PSG Academy coaching staff group photo" loading="lazy"><span><span class="en">With the PSG Academy coaching staff</span><span class="es">Con el staff de entrenadores de PSG Academy</span></span></button></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="performance">
+    <div class="sec-head"><div class="tag"><span class="en">Performance</span><span class="es">Rendimiento</span></div><h2><span class="en">Strength &amp; conditioning</span><span class="es">Preparación física</span></h2></div>
+    <div class="stack">
+      <article class="entry">
+        <div class="when">Nov 2026 –</div>
+        <div>
+          <h3><span class="en">Individual Strength &amp; Conditioning</span><span class="es">Preparación física personalizada</span></h3>
+          <div class="org"><span class="en">NAIA soccer player</span><span class="es">Futbolista nivel NAIA</span></div>
+          <p><span class="en">One-on-one gym program for a college player, starting with lower-body testing for speed, power and maximal strength, then building the plan from those results.</span><span class="es">Programa individual en gimnasio para un jugador universitario. Arranca con tests de tren inferior (velocidad, potencia y fuerza máxima) y el plan se construye a partir de esos resultados.</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><div class="tag"><span class="en">Analysis &amp; data</span><span class="es">Análisis y datos</span></div><h2><span class="en">Video &amp; data analysis</span><span class="es">Videoanálisis y datos</span></h2></div>
+    <div class="projects">
+      <article class="proj">
+        <div class="kind"><span class="en">Match analysis · Instagram &amp; TikTok</span><span class="es">Análisis de partidos · Instagram y TikTok</span></div>
+        <h3>Silas Performance</h3>
+        <p><span class="en">Ongoing series breaking down Lexington Sporting Club and its opponents: rival scouting, pre-match plans, post-match reviews, individual player focus and data comparisons.</span><span class="es">Serie continua de análisis de Lexington Sporting Club y sus rivales: scouting del rival, plan pre-partido, análisis post-partido, foco individual en jugadores y comparativas de datos.</span></p>
+        <a class="more" href="https://www.instagram.com/silasperformancelsc/" target="_blank" rel="noopener">@silasperformancelsc ↗</a>
+      </article>
+      <article class="proj">
+        <div class="kind"><span class="en">Personal project · Data</span><span class="es">Proyecto personal · Datos</span></div>
+        <h3><span class="en">Recruitment scouting dashboard</span><span class="es">Dashboard de scouting de fichajes</span></h3>
+        <p><span class="en">A recruitment dashboard I designed and coded on my own for the 2027 season. It covers every player in the USL Championship, USL League One and MLS Next Pro 2026, updates itself daily from FotMob, and ranks players with percentiles within their own league and position.</span><span class="es">Dashboard de fichajes que diseñé y programé por mi cuenta para la temporada 2027. Cubre a todos los jugadores de USL Championship, USL League One y MLS Next Pro 2026, se actualiza solo cada día con datos de FotMob y ordena a los jugadores con percentiles dentro de su liga y su posición.</span></p>
+        <p><span class="en">Includes a side-by-side comparator, a "similar players" finder, printable player reports, contract and value filters, and a shared shortlist with comments for the staff, behind a private login.</span><span class="es">Incluye comparador lado a lado, buscador de jugadores parecidos, fichas individuales imprimibles, filtros por contrato y valor, y una shortlist compartida con comentarios para el staff, con acceso privado.</span></p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">Supabase</span><span class="chip">FotMob data</span><span class="chip">3 leagues</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="player">
+    <div class="sec-head"><div class="tag"><span class="en">Playing</span><span class="es">Jugador</span></div><h2><span class="en">Playing experience</span><span class="es">Experiencia como jugador</span></h2></div>
+    <div class="stack">
+      <article class="entry">
+        <div class="when"><span class="en">3 seasons</span><span class="es">3 temporadas</span></div>
+        <div>
+          <h3><span class="en">College Player</span><span class="es">Jugador universitario</span></h3>
+          <div class="org">Georgetown College · NAIA · Kentucky, USA</div>
+          <p><span class="en">Three seasons of college soccer. A tendon rupture ended my playing career, and I moved onto the coaching staff for my final year.</span><span class="es">Tres temporadas de fútbol universitario. Una ruptura de tendón terminó mi etapa como jugador y en mi último año pasé al cuerpo técnico.</span></p>
+          <div class="shots"><button class="shot" type="button" data-src="img/gc-strike.jpg"><img src="img/gc-strike.jpg" alt="Shooting in a Georgetown College match" loading="lazy"><span><span class="en">Striking the ball · Georgetown College #9</span><span class="es">Rematando · Georgetown College #9</span></span></button><button class="shot" type="button" data-src="img/gc-9.jpg"><img src="img/gc-9.jpg" alt="In the Georgetown College #9 kit" loading="lazy"><span><span class="en">#9 · Georgetown College</span><span class="es">#9 · Georgetown College</span></span></button></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when"><span class="en">Ages 15–24</span><span class="es">15–24 años</span></div>
+        <div>
+          <h3><span class="en">Bogotá's top amateur tournaments</span><span class="es">Los grandes torneos aficionados de Bogotá</span></h3>
+          <div class="org">Bogotá, Colombia</div>
+          <p><span class="en">Played the city's most competitive semi-pro tournaments: the Torneo del Olaya five times (held since 1959, now in its 65th edition, with stands filled by thousands of fans), the Copa Trinche twice (Colombia's largest neighborhood tournament; its 2026 edition had 136 teams and about 66,000 spectators) and the Torneo del Suroriente once.</span><span class="es">Jugué los torneos semiprofesionales más competitivos de la ciudad: el Torneo del Olaya en 5 ocasiones (se juega desde 1959, va en su edición 65 y llena sus graderías con miles de aficionados), la Copa Trinche en 2 ocasiones (el torneo de barrio más grande de Colombia; su edición 2026 tuvo 136 equipos y cerca de 66.000 espectadores) y el Torneo del Suroriente una vez.</span></p>
+          <div class="chips"><span class="chip">Olaya ×5</span><span class="chip">Copa Trinche ×2</span><span class="chip">Suroriente ×1</span></div>
+          <div class="shots wide"><button class="shot" type="button" data-src="img/olaya-tv.jpg"><img src="img/olaya-tv.jpg" alt="Lineup of Caterpillar Motor vs Olaya on a TV broadcast" loading="lazy"><span><span class="en">Torneo del Olaya on TV · Caterpillar Motor vs Olaya</span><span class="es">Torneo del Olaya en TV · Caterpillar Motor vs Olaya</span></span></button><button class="shot" type="button" data-src="img/trinche-motm.jpg"><img src="img/trinche-motm.jpg" alt="Man of the Match graphic from Copa Trinche 2022" loading="lazy"><span><span class="en">Man of the Match · Copa Trinche Bogotá 2022</span><span class="es">Jugador del partido · Copa Trinche Bogotá 2022</span></span></button><button class="shot" type="button" data-src="img/bog-team-stadium.jpg"><img src="img/bog-team-stadium.jpg" alt="Team photo with a full stand behind" loading="lazy"><span><span class="en">Team photo in front of a full stand</span><span class="es">Foto de equipo con la tribuna llena</span></span></button><button class="shot" type="button" data-src="img/bog-kits.jpg"><img src="img/bog-kits.jpg" alt="Three players in team kits" loading="lazy"><span><span class="en">Semi-pro team, Bogotá</span><span class="es">Equipo semiprofesional, Bogotá</span></span></button></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when">2011 – 2015</div>
+        <div>
+          <h3><span class="en">Bogotá Selection · National Games</span><span class="es">Selección Bogotá · Juegos Nacionales</span></h3>
+          <div class="org"><span class="en">Representing the city of Bogotá</span><span class="es">Representando a Bogotá</span></div>
+          <p><span class="en">Selected to the Bogotá team for Colombia's Juegos Nacionales for five consecutive years.</span><span class="es">Convocado a la selección Bogotá para los Juegos Nacionales durante cinco años consecutivos.</span></p>
+          <div class="shots"><button class="shot" type="button" data-src="img/bog-podium.jpg"><img src="img/bog-podium.jpg" alt="Speaking at a podium in a Bogotá jacket" loading="lazy"><span><span class="en">Representing Bogotá</span><span class="es">Representando a Bogotá</span></span></button><button class="shot" type="button" data-src="img/bog-19.jpg"><img src="img/bog-19.jpg" alt="In a yellow and orange kit, #19" loading="lazy"><span><span class="en">#19 · Bogotá</span><span class="es">#19 · Bogotá</span></span></button></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when"><span class="en">Ages 15–19</span><span class="es">15–19 años</span></div>
+        <div>
+          <h3><span class="en">Youth Divisions</span><span class="es">Divisiones menores</span></h3>
+          <div class="org">Millonarios FC · Bogotá</div>
+          <p><span class="en">Four years in the youth system of one of Colombia's most successful professional clubs.</span><span class="es">Cuatro años en las divisiones menores de uno de los clubes profesionales más ganadores de Colombia.</span></p>
+          <div class="shots"><button class="shot" type="button" data-src="img/millonarios.jpg"><img src="img/millonarios.jpg" alt="Portrait in a Millonarios FC shirt" loading="lazy"><span><span class="en">Millonarios FC youth divisions</span><span class="es">Divisiones menores de Millonarios FC</span></span></button></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when"><span class="en">Ages 3–15</span><span class="es">3–15 años</span></div>
+        <div>
+          <h3><span class="en">Youth Academy</span><span class="es">Escuela de formación</span></h3>
+          <div class="org">Club Caterpillar Motor · Bogotá</div>
+          <p><span class="en">Grew up as a player at one of Bogotá's largest youth academies: founded in 1979, around 2,000 young players and 32 teams, and named Bogotá's best training school in 2014 by ACORD and the city sports institute (IDRD).</span><span class="es">Me formé en una de las escuelas más grandes de Bogotá: fundada en 1979, con cerca de 2.000 jugadores y 32 equipos, y reconocida en 2014 como la mejor escuela de formación deportiva por ACORD y el IDRD.</span></p>
+          <div class="shots"><button class="shot" type="button" data-src="img/cat-trophies.jpg"><img src="img/cat-trophies.jpg" alt="Young Caterpillar Motor team with trophies" loading="lazy"><span><span class="en">Trophies with the Caterpillar Motor youth team</span><span class="es">Trofeos con el equipo de formativas de Caterpillar Motor</span></span></button><button class="shot" type="button" data-src="img/cat-team-2.jpg"><img src="img/cat-team-2.jpg" alt="Caterpillar Motor youth team photo" loading="lazy"><span><span class="en">Caterpillar Motor youth team</span><span class="es">Equipo de formativas de Caterpillar Motor</span></span></button><button class="shot" type="button" data-src="img/cat-team-1.jpg"><img src="img/cat-team-1.jpg" alt="Caterpillar Motor youth team photo" loading="lazy"><span><span class="en">Caterpillar Motor, youth categories</span><span class="es">Caterpillar Motor, categorías menores</span></span></button></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><div class="tag"><span class="en">Education</span><span class="es">Estudios</span></div><h2><span class="en">Education</span><span class="es">Formación</span></h2></div>
+    <div class="stack">
+      <article class="entry">
+        <div class="when"><span class="en">Exp. 2027</span><span class="es">Grado 2027</span></div>
+        <div>
+          <h3><span class="en">B.S. Exercise Science &amp; Sport Management</span><span class="es">Ciencias del Ejercicio y Administración Deportiva</span></h3>
+          <div class="org">Georgetown College · Georgetown, Kentucky, USA</div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when">Dec 2026</div>
+        <div>
+          <h3><span class="en">Systems and Computer Engineering</span><span class="es">Ingeniería de Sistemas y Computación</span></h3>
+          <div class="org">Universidad Católica de Colombia · Bogotá</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="more">
+    <div class="sec-head"><div class="tag"><span class="en">Club business &amp; events</span><span class="es">Gestión y eventos</span></div><h2><span class="en">Marketing &amp; operations</span><span class="es">Marketing y gestión</span></h2></div>
+    <div class="stack">
+      <article class="entry">
+        <div class="when">Mar 2025 –</div>
+        <div>
+          <h3><span class="en">Marketing Intern</span><span class="es">Interno de marketing</span></h3>
+          <div class="org">Lexington Sporting Club</div>
+          <p><span class="en">Part of the marketing team of a professional soccer club, working on how the club reaches fans and the community.</span><span class="es">Parte del equipo de marketing de un club de fútbol profesional, trabajando en cómo el club llega a sus aficionados y a la comunidad.</span></p>
+          <div class="chips"><span class="chip">Pro club</span><span class="chip">Marketing</span><span class="chip">Fan engagement</span></div>
+          <div class="shots wide"><button class="shot" type="button" data-src="img/lsc-staff.jpg"><img src="img/lsc-staff.jpg" alt="Lexington Sporting Club staff group photo on the pitch" loading="lazy"><span><span class="en">Lexington SC staff · Powered By Her match day</span><span class="es">Staff de Lexington SC · partido Powered By Her</span></span></button></div>
+        </div>
+      </article>
+      <article class="entry">
+        <div class="when">Georgetown College</div>
+        <div>
+          <h3><span class="en">Tournament Organizer · Intramurals</span><span class="es">Organizador de torneos intramurales</span></h3>
+          <div class="org">Georgetown College</div>
+          <p><span class="en">Plan and run the campus intramural competitions: scheduling, teams and game-day logistics. I also work in Residence Life.</span><span class="es">Organizo y dirijo las competencias intramurales del campus: calendario, equipos y logística de cada jornada. También trabajo en Residence Life.</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div>
+      <h2><span class="en">Let's talk</span><span class="es">Hablemos</span></h2>
+      <p><span class="en">Open to roles across football: coaching staff, video and performance analysis, scouting, strength and conditioning, and club marketing or operations.</span><span class="es">Disponible para cargos en todo el mundo del fútbol: cuerpo técnico, videoanálisis y análisis de rendimiento, scouting, preparación física, y marketing o gestión de clubes.</span></p>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="k">Email</span><span class="v" id="email">alejandromenarios98@gmail.com</span><button class="copy" id="copy-email" type="button">Copy</button></div>
+      <div class="row"><span class="k">Instagram</span><a class="v" href="https://www.instagram.com/silasperformancelsc/" target="_blank" rel="noopener">@silasperformancelsc</a></div>
+      <div class="row"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/alejandro-mena-rios" target="_blank" rel="noopener">linkedin.com/in/alejandro-mena-rios</a></div>
+      <div class="row"><span class="k"><span class="en">Based in</span><span class="es">Ubicación</span></span><span class="v">Lexington · Georgetown, KY</span></div>
+    </div>
+  </div>
+
+  <dialog id="lightbox"><button type="button" id="lb-close">Close ✕</button><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+  <footer>Coach: Alejandro Mena</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, bEn=document.getElementById('btn-en'), bEs=document.getElementById('btn-es');
+  function set(l){root.setAttribute('data-lang',l);root.lang=l;bEn.setAttribute('aria-pressed',l==='en');bEs.setAttribute('aria-pressed',l==='es');try{localStorage.setItem('lang',l)}catch(e){}}
+  var start=location.hash==='#es'?'es':location.hash==='#en'?'en':null;
+  if(!start){try{start=localStorage.getItem('lang')}catch(e){}}
+  set(start==='es'?'es':'en');
+  bEn.onclick=function(){set('en')}; bEs.onclick=function(){set('es')};
+  document.getElementById('copy-email').onclick=function(){
+    var el=document.getElementById('email'), t=el.textContent.trim(), btn=this;
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){btn.textContent='Copied'},sel)}else sel();
+  };
+  var lb=document.getElementById('lightbox'),li=document.getElementById('lb-img'),lc=document.getElementById('lb-cap');
+  document.querySelectorAll('.shot').forEach(function(b){b.onclick=function(){
+    li.src=b.dataset.src;li.alt=b.querySelector('img').alt;
+    var l=root.getAttribute('data-lang')==='es'?'.es':'.en';lc.textContent=b.querySelector('span '+l).textContent;
+    if(lb.showModal)lb.showModal();else lb.setAttribute('open','')}});
+  function close(){if(lb.close)lb.close();else lb.removeAttribute('open')}
+  document.getElementById('lb-close').onclick=close;
+  lb.onclick=function(e){if(e.target===lb)close()};
+})();
+</script>
+
+</body>
+</html>
